@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import fs from 'fs';
-import ytdl from '@distube/ytdl-core';
 import youtubeDl from "youtube-dl-exec";
 import path from "path";
 
@@ -21,8 +20,7 @@ app.post('/download',async(req,res)=>{
 
     let downloaded = 0;
     // Example with custom function.
-    const videoId  = ytdl.getVideoID(youtubeUrl);
-    const title = (await ytdl.getInfo(youtubeUrl)).videoDetails.title;
+    const videoId  = youtubeUrl.split("?v=")[1];
     const filePath = path.join(__dirname ,".." ,`${videoId}.mp4`);
     console.log(filePath);
 

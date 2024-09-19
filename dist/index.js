@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const fs_1 = __importDefault(require("fs"));
-const ytdl_core_1 = __importDefault(require("@distube/ytdl-core"));
 const youtube_dl_exec_1 = __importDefault(require("youtube-dl-exec"));
 const path_1 = __importDefault(require("path"));
 const app = (0, express_1.default)();
@@ -27,8 +26,7 @@ app.post('/download', (req, res) => __awaiter(void 0, void 0, void 0, function* 
     console.log(youtubeUrl);
     let downloaded = 0;
     // Example with custom function.
-    const videoId = ytdl_core_1.default.getVideoID(youtubeUrl);
-    const title = (yield ytdl_core_1.default.getInfo(youtubeUrl)).videoDetails.title;
+    const videoId = youtubeUrl.split("?v=")[1];
     const filePath = path_1.default.join(__dirname, "..", `${videoId}.mp4`);
     console.log(filePath);
     if (!fs_1.default.existsSync(filePath)) {

@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 const fs_1 = __importDefault(require("fs"));
-const ytdl_core_1 = __importDefault(require("ytdl-core"));
+const ytdl_core_1 = __importDefault(require("@distube/ytdl-core"));
 const youtube_dl_exec_1 = __importDefault(require("youtube-dl-exec"));
 const path_1 = __importDefault(require("path"));
 const app = (0, express_1.default)();
